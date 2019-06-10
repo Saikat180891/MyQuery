@@ -11,6 +11,9 @@ body {
   height: 300px;
   width: 300px;
   background-color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .child {
