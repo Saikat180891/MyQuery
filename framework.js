@@ -21,10 +21,21 @@ MyQuery.prototype.addClasses = function (...classes) {
   return this;
 };
 
-MyQuery.prototype.insertElement = function (node) {
+MyQuery.prototype.insertInnerElement = function (node) {
   this.element.appendChild(node.element);
   return this;
 };
+
+MyQuery.prototype.addText = function(text) {
+  let textNode = document.createTextNode(text);
+  this.element.appendChild(textNode);
+  return this;
+}
+
+MyQuery.prototype.addInnerHTML = function(html) {
+  this.element.innerHTML = html;
+  return this;
+}
 
 MyQuery.prototype.on = function (event, callback) {
   this.element.addEventListener(event, callback);
@@ -32,7 +43,12 @@ MyQuery.prototype.on = function (event, callback) {
 };
 
 MyQuery.prototype.append = function (where, node) {
-  this.element.insertAdjacentHTML(where, node);
+  this.element.insertAdjacentHTML(where, node.element);
+  return this;
+};
+
+MyQuery.prototype.insertAfter = function (node) {
+  this.element.after(node.element);
   return this;
 };
 

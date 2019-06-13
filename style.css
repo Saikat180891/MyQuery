@@ -1,23 +1,23 @@
-body {
-  margin: 0;
-  padding: 0;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-.parent {
-  height: 300px;
-  width: 300px;
+.navbar {
+  height: 50px;
+  width: 100%;
   background-color: red;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 0 2rem;
 }
 
-.child {
+.brand {
   width: 100px;
-  height: 100px;
+  height: 30px;
   background-color: green;
+}
+
+.list{
+  display: flex;
+  flex-direction: column;
+  background-color: aqua;
+}
+
+.listitem{
+  display: flex;
+  background-color: blueviolet;
 }

@@ -1,19 +1,30 @@
-const div = new MyQuery("div");
-div
-  .addParent("body")
-  .addClasses("parent")
+const navbar = new MyQuery("div");
+navbar.addClasses("navbar", "flex-between", "v-center").addParent("body");
+
+const brand = new MyQuery("div")
+brand.addClasses("brand", "flex-center", "v-center").addText("Brand");
+
+const rightControls = new MyQuery("div");
+rightControls.addClasses("brand");
 
 
-const div2 = new MyQuery("div");
-div2.addClasses("child");
+const list = new MyQuery("ul");
+list.addClasses("list").on("click", (e)=>{
+  console.log(e.target);
+})
 
-console.log(div, div2);
+const myArray = [1, 2, 3, 4, 5, 6, 7, 8]
 
-div.insertElement(div2);
+myArray.forEach(ele => {
+  const listItem = new MyQuery("li");
+  listItem.addClasses("listitem").addText("Hello " + ele);
+  list.insertInnerElement(listItem);
+})
 
-const dropdown = new MyQuery("div");
-dropdown.createDropdown([1, 5], [2, 3], "change", (e) => {
-  console.log(e.target.value)
-});
 
-div2.insertElement(dropdown);
+console.log(list)
+
+navbar
+  .insertInnerElement(brand)
+  .insertInnerElement(rightControls)
+  .insertAfter(list)
