@@ -1,28 +1,32 @@
-const navbar = new MyQuery("div");
-navbar.addClasses("navbar", "flex-between", "v-center").addParent("body");
-
-const brand = new MyQuery("div");
-brand.addClasses("brand", "flex-center", "v-center").addText("Brand");
-
-const rightControls = new MyQuery("div");
-rightControls.addClasses("brand");
-
-const list = new MyQuery("ul");
-list.addClasses("list").on("click", e => {
-  console.log(e.target);
+let options = [
+  { value: "1", viewValue: "One" },
+  { value: "2", viewValue: "Two" },
+  { value: "3", viewValue: "Three" },
+  { value: "4", viewValue: "Four" }
+];
+const select1 = $("#select-1");
+select1.dropdown(options, e => {
+  console.log(e);
 });
 
-const myArray = [1, 2, 3, 4, 5, 6, 7, 8];
+const form = $("#form");
 
-myArray.forEach(ele => {
-  const listItem = new MyQuery("li");
-  listItem.addClasses("listitem").addText("Hello " + ele);
-  list.insertInnerElement(listItem);
+const dynamicElements = $("#dynamic-elements");
+
+const add = $("#add");
+add.on("click", () => {
+  const input = document.createElement("input");
+  const br = document.createElement("br");
+  input.type = "text";
+  dynamicElements.append(input);
+  dynamicElements.append(br);
 });
 
-console.log(list);
-
-navbar
-  .insertInnerElement(brand)
-  .insertInnerElement(rightControls)
-  .insertAfter(list);
+form.on("submit", e => {
+  e.preventDefault();
+  e.stopPropagation();
+  console.log(e.target.id);
+  if (e.target.id === "form") {
+    console.log(document.myform);
+  }
+});

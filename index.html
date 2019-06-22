@@ -5,11 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-    <link rel="stylesheet" href="./styleReset.css">
+    <link rel="stylesheet" href="./styleReset.css" />
     <link rel="stylesheet" href="./style.css" />
+    <script src="./framework.js"></script>
   </head>
   <body>
-    <script src="./framework.js"></script>
+    <div id="select-1"></div>
+    <form id="form" name="myform">
+      First name:<br />
+      <input type="text" name="firstname" value="Mickey" />
+      <br />
+      Last name:<br />
+      <input type="text" name="lastname" value="Mouse" />
+      <br /><br />
+      <button id="add">Add another field</button>
+      <br /><br />
+      <div id="dynamic-elements"></div>
+      <input type="submit" value="Submit" />
+    </form>
     <script src="./app.js"></script>
   </body>
 </html>
